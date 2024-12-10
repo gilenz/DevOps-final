@@ -13,6 +13,3 @@ def results():
                     lst1.append([res1["name"], res1["location"].get("name", ""), res1["image"]])
         i += 1
     return(lst1)
-with open('results.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerows(results())
