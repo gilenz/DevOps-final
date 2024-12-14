@@ -17,13 +17,13 @@ jobs:
         run: ls -la
       - name: apply helm chart
         run: helm install python-app -f python/helm/python-app/values.yaml python/helm/python-app/.
-      - name: run busybox for tests
-        run: kubectl run -i --tty --rm busybox --image=busybox --restart=Never -- sh
+      - name: takes the service into arg
+        run: IP=$(minikube service python-service --url)
       - name: run endpoints tests
         run: |
-          curl python-service:8000/results
-          curl python-service:8000/csv
-          curl python-service:8000/healthcheck
+          curl $IP/results
+          curl $IP/csv
+          curl $IP/healthcheck
         
  
 
