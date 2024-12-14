@@ -16,6 +16,6 @@ jobs:
       - name: check ls
         run: ls -la
       - name: apply yamls to minikube
-        run: kubectl apply -f python/yamls/. --validate=false
+        run: helm install python-app python/helm/pyhton-app --set installCRDs=true -f python/helm/pyhton-app/values.yaml
 
 
