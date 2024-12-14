@@ -9,12 +9,7 @@ jobs:
       - name: start minikube
         id: minikube
         uses: medyagh/setup-minikube@latest
-      # now you can run kubectl to see the pods in the cluster
-      - name: kubectl
-        run: kubectl get pods -A
       - uses: actions/checkout@v4
-      - name: ls command
-        run: ls -la
       - name: apply helm chart
         run: helm install python-app -f python/helm/python-app/values.yaml python/helm/python-app/.
       - name: Wating for pods to create
