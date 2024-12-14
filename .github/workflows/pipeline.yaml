@@ -18,7 +18,7 @@ jobs:
       - name: apply helm chart
         run: helm install python-app -f python/helm/python-app/values.yaml python/helm/python-app/.
       - name: takes the service into arg
-        run: IP=$(minikube service python-service --url)
+        run: minikube service list
       - name: run endpoints tests
         run: |
           curl $IP/results
