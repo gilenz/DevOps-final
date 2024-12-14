@@ -12,14 +12,11 @@ jobs:
        #now you can run kubectl to see the pods in the cluster
        - name: kubectl
          run: kubectl get pods -A
-  job2:
-      needs: job1
-      runs-on: ubuntu-latest
-      name: job2
-      steps:
-        - uses: actions/checkout@v4
-        - name: check ls
-          run: ls -la
-        - name: apply yamls to minikube
-          run: kubectl apply -f python/yamls/. --validate=false
+       - name: checkout code
+       - uses: actions/checkout@v4
+       - name: check ls
+         run: ls -la
+       - name: apply yamls to minikube
+         run: kubectl apply -f python/yamls/. --validate=false
+
 
