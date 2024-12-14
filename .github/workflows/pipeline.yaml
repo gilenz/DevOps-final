@@ -1,8 +1,29 @@
-name: hello-world
-on: push
+name: CI
+on:
+  push
 jobs:
-  my-job:
+  job1:
     runs-on: ubuntu-latest
+    name: job1
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: start minikube
+        id: minikube
+        uses: medyagh/setup-minikube@latest
+      # now you can run kubectl to see the pods in the cluster
+      - name: kubectl
+        run: kubectl get pods -A
+      - uses: actions/checkout@v4
+      - name: check ls
+        run: ls -la
+      - name: apply helm chart
+        run: helm install python-app -f ./python/helm/python-app/values.yaml ./python/helm/python-app/.
+      - name: run busybox for tests
+        run: kubectl run -i --tty --rm busybox --image=busybox --restart=Never -- sh
+      - name: run endpoints tests
+        run: |
+          curl python-service:8000/results
+          curl python-service:8000/csv
+          curl python-service:8000/healthcheck
+        
+ 
+
