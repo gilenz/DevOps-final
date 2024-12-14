@@ -13,6 +13,7 @@ jobs:
        - name: kubectl
          run: kubectl get pods -A
   job2:
+      needs: job1
       runs-on: ubuntu-latest
       name: job2
       steps:
