@@ -1,8 +1,14 @@
-name: hello-world
-on: push
+name: CI
+on:
+  push
 jobs:
-  my-job:
+  job1:
     runs-on: ubuntu-latest
+    name: job1
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: start minikube
+        id: minikube
+        uses: medyagh/setup-minikube@latest
+      # now you can run kubectl to see the pods in the cluster
+      - name: kubectl
+        run: kubectl get pods -A
