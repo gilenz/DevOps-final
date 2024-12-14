@@ -17,6 +17,8 @@ jobs:
         run: ls -la
       - name: apply helm chart
         run: helm install python-app -f python/helm/python-app/values.yaml python/helm/python-app/.
+      - name: check pods for service
+        run: kubectl get po 
       - name: takes the service into arg
         run: minikube service python-service --url
       - name: run endpoints tests
