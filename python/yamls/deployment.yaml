@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: python
-        image: gilni/final-app:v1
+        image: gilni/final-app:v2
         ports:
         - containerPort: 8000
 

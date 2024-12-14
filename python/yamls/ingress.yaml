@@ -4,7 +4,7 @@ metadata:
   name: ingress-python
 spec:
   rules:
-  - host: hello.python.com
+  - host: app.python.com
     http:
       paths:
       - path: /
