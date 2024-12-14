@@ -17,8 +17,8 @@ jobs:
         run: ls -la
       - name: apply yamls to minikube # except pool address
         run: find python/yamls/ -type f -name '*.yaml' ! -name 'metallelb-pool.yaml' -exec kubectl apply -f {} \;
-      - name: Sleep for 10 seconds
-        run: sleep 10s
+      - name: Sleep for 20 seconds
+        run: sleep 20s
       - name: apply address pool
         run: kubectl apply -f python/yamls/metallelb-pool.yaml
 
