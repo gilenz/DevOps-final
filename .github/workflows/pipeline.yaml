@@ -19,9 +19,9 @@ jobs:
         run: find python/yamls/ -type f -name '*.yaml' ! -name 'metallelb-pool.yaml' -exec kubectl apply -f {} \;
       - name: tests for endpoints
         run: |
-          curl app.python.com/results
-          curl app.python.com/csv
-          curl app.python.com/healthcheck
+          curl app.python.com:8000/results
+          curl app.python.com:8000/csv
+          curl app.python.com:8000/healthcheck
         
  
 
