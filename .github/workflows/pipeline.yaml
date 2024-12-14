@@ -13,13 +13,13 @@ jobs:
       - name: kubectl
         run: kubectl get pods -A
       - uses: actions/checkout@v4
-      - name: check ls
+      - name: ls command
         run: ls -la
       - name: apply helm chart
         run: helm install python-app -f python/helm/python-app/values.yaml python/helm/python-app/.
-      - name: sleep 40s
+      - name: Wating for pods to create
         run: sleep 40s
-      - name: check pods for service
+      - name: Verify the pods are runing
         run: kubectl get po
       - name: run endpoints tests
         run: |
