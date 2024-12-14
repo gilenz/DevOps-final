@@ -22,7 +22,7 @@ jobs:
       - name: check pods for service
         run: kubectl get po
       - name: takes the service into arg
-        run: minikube service python-service --url
+        run: IP=$(minikube service python-service --url)
       - name: run endpoints tests
         run: |
           curl $IP/results
