@@ -3,19 +3,22 @@ on:
   push
 jobs:
   job1:
+     runs-on: ubuntu-latest
+     name: job1
+     steps:
+       - name: start minikube
+         id: minikube
+         uses: medyagh/setup-minikube@latest
+       #now you can run kubectl to see the pods in the cluster
+       - name: kubectl
+         run: kubectl get pods -A
+  job2:
       runs-on: ubuntu-latest
-      name: job1
+      name: job2
       steps:
         - uses: actions/checkout@v4
         - name: check ls
           run: ls -la
-#  job2:
-#     runs-on: ubuntu-latest
-#     name: job2
-#     steps:
- #      - name: start minikube
-  #       id: minikube
-    #     uses: medyagh/setup-minikube@latest
-      # now you can run kubectl to see the pods in the cluster
-      # - name: kubectl
-        # run: kubectl get pods -A
+        - name: apply yamls to minikube
+          run: kubectl apply -f python/DevOps-final/python/yamls/.
+
