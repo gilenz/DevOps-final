@@ -21,5 +21,5 @@ jobs:
         - name: check ls
           run: ls -la
         - name: apply yamls to minikube
-          run: kubectl apply -f python/yamls/.
+          run: kubectl apply -f python/yamls/. --validate=false
 
