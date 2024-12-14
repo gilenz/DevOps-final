@@ -6,14 +6,14 @@ jobs:
      runs-on: ubuntu-latest
      name: job1
      steps:
+       - uses: medyagh/setup-minikube@latest
+       - uses: actions/checkout@v4
        - name: start minikube
          id: minikube
-         uses: medyagh/setup-minikube@latest
        #now you can run kubectl to see the pods in the cluster
        - name: kubectl
          run: kubectl get pods -A
        - name: checkout code
-       - uses: actions/checkout@v4
        - name: check ls
          run: ls -la
        - name: apply yamls to minikube
