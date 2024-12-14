@@ -17,8 +17,8 @@ jobs:
         run: ls -la
       - name: apply helm chart
         run: helm install python-app -f python/helm/python-app/values.yaml python/helm/python-app/.
-      - name: sleep 15s
-        run: sleep 15s
+      - name: sleep 40s
+        run: sleep 40s
       - name: check pods for service
         run: kubectl get po
       - name: takes the service into arg
