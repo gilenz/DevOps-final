@@ -16,7 +16,7 @@ jobs:
       - name: check ls
         run: ls -la
       - name: apply helm chart
-        run: helm install python-app -f python/helm/python-app/values.yaml python/helm/python-app/.
+        run: helm install python-app -f ./python/helm/python-app/values.yaml ./python/helm/python-app/.
       - name: run busybox for tests
         run: kubectl run -i --tty --rm busybox --image=busybox --restart=Never -- sh
       - name: run endpoints tests
