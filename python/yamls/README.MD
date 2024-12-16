@@ -11,8 +11,8 @@ minikube service python-service
 
 
 ## Deploy to other k8s disturbutions
-- Please make sure that Docker engine is runing
-- To build this application please run the following command
+- 
+- 
 ```
 
 ```
