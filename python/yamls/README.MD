@@ -31,7 +31,7 @@ http://<NodeIP>:<NodePort>/healthcheck
 ```
 ## Access the application using external ip
 - for that you will need to deploy the recommened folder
-- dont deploy the metallelb-pool.yaml until all the pods related to the namespace metallb-system you can check that by using the following command:
+- dont deploy the metallelb-pool.yaml until all the pods related to the namespace metallb-system are up you can check that by using the following command:
 ```
 kubectl get all -n metallb-system
 ```
