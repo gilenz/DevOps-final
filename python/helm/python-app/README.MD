@@ -29,4 +29,4 @@ http://<NodeIP>:<NodePort>/results
 http://<NodeIP>:<NodePort>/csv
 http://<NodeIP>:<NodePort>/healthcheck
 ```
-### Note that accessing via ingress not deployed with the helm chart for that you will need to deploy the recommended/ folder
+### Note that accessing via ingress not enable with the helm chart for that you will need to deploy the recommended/ folder
